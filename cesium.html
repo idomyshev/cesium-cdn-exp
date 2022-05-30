@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- Include the CesiumJS JavaScript and CSS files -->
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.93/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.93/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+</head>
+<body>
+<div id="cesiumContainer"></div>
+<script>
+  Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4MzIyNmJjYy05YTMwLTRlMGEtOWQ2NS0xYTVjNzM4YWE0MGIiLCJpZCI6OTU3MzksImlhdCI6MTY1MzkzMDYxMX0.E_bEljWtXDkndWUsvBkc_QQ_Y5UUlHPwqA8ha8B0Cvo';
+
+  const viewer = new Cesium.Viewer("cesiumContainer", {
+    terrainProvider: new Cesium.CesiumTerrainProvider({
+      url: Cesium.IonResource.fromAssetId(1),
+    }),
+  });
+
+  const layer = viewer.imageryLayers.addImageryProvider(
+    new Cesium.IonImageryProvider({ assetId: 3 })
+  );
+</script>
+</body>
+</html>
